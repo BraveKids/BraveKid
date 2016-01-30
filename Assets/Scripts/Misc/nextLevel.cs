@@ -8,12 +8,13 @@ public class nextLevel : MonoBehaviour
 	{
 		
 		if (other.CompareTag ("Player")) {
-			Debug.Log("next level");
+
 			//SaveLoad.savedGame.firstGame=false;
 			SaveLoad.savedGame.level++;
 			cameraManager.instance.cameraFade();
 			
 			SaveLoad.SaveGame();
+
 		}
 	}
 }
