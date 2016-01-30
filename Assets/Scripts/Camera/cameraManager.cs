@@ -33,6 +33,8 @@ public class cameraManager : MonoBehaviour
 	bool death;
 	GameObject player;
 	public float playerDimension;
+	public List<GameObject> levels;
+	public int level;
 
 	// Use this for initialization
 	void Start ()
@@ -44,6 +46,8 @@ public class cameraManager : MonoBehaviour
 		} else {
 			Destroy (gameObject);
 		}
+
+		levels = new List<GameObject> ();
 		player = GameObject.FindGameObjectWithTag ("Player");
 		death = false;
 		deathObject = gameObject.transform.FindChild ("deathSprite").gameObject;
@@ -60,7 +64,12 @@ public class cameraManager : MonoBehaviour
 		scaleY = deathObject.transform.localScale.y;
 		scaleZ = deathObject.transform.localScale.z;
 
+
+		for (int i = 1; i<=3; i++) {
+			levels.Add (GameObject.Find ("Level" + i));
+		}
 		setCamera ();
+		
 	}
 	
 	// Update is called once per frame
@@ -115,9 +124,10 @@ public class cameraManager : MonoBehaviour
 	{
 		fading = true;
 		moved = false;
-		nextX = cameraX + width - playerDimension;
+		level++;
+		nextX = levels [level].transform.position.x;
 		player.GetComponent<CharacterControllerScript> ().canMove (false);	
-
+		movePlayer(nextX-playerDimension);
 
 	}
 
@@ -149,8 +159,16 @@ public class cameraManager : MonoBehaviour
 
 	public void setCamera ()
 	{
-		Vector3 cameraPos = new Vector3 (player.transform.position.x + width / 2 - playerDimension, transform.position.y, transform.position.z);
+		level = SaveLoad.savedGame.level;
+		Vector3 cameraPos = new Vector3 (levels [level].transform.FindChild ("background").position.x, levels [level].transform.FindChild ("background").position.y, transform.position.z);
 		transform.position = cameraPos;
+		movePlayer(transform.position.x);
 	}
+
+	public void movePlayer(float x){
+		player.transform.position= new Vector3(x, player.transform.position.y, player.transform.position.z);
+	}
+
+
 }
 

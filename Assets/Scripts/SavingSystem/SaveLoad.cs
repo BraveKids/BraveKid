@@ -54,21 +54,7 @@ public class SaveLoad
 		savedGame.firstGame = true;
 	}
 
-	public static void spawn ()
-	{
-		if (player == null) {
-			getPlayer ();
-		}
-		if (savedGame.firstGame) {
-			GameObject startPoint = GameObject.FindGameObjectWithTag ("startPoint");
-			savedGame.playerX = startPoint.transform.position.x;
-			savedGame.playerY = startPoint.transform.position.y;
 
-		}
-		Vector3 playerPos = new Vector3 (SaveLoad.savedGame.playerX, SaveLoad.savedGame.playerY, player.transform.position.z);
-		player.transform.position = playerPos;
-
-	}
 
 	public static void getPlayer ()
 	{
