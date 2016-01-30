@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Rock : MonoBehaviour {
 	public GameObject parent;
-	public Transform target;
 	// Use this for initialization
 	void Start () {
 	
@@ -16,10 +15,14 @@ public class Rock : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.isTrigger != true) {
-			GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterControllerScript>().canMove();
-			target.GetComponentInChildren<SpriteRenderer>().enabled = false;
-			parent.SetActive(false);
+			Invoke ("DestroyProjectile", 0.2f);
+
 
 		}
+	}
+
+	void DestroyProjectile(){
+		GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterControllerScript>().canMove(true);
+		parent.SetActive(false);
 	}
 }
