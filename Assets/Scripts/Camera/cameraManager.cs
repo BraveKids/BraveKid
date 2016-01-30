@@ -25,7 +25,6 @@ public class cameraManager : MonoBehaviour
 	float t;
 	float levelPassageDuration = 1.25f;
 	float deathDuration = 1f;
-	
 	bool moved;
 	SpriteRenderer levelSprite;
 	GameObject deathObject;
@@ -45,7 +44,7 @@ public class cameraManager : MonoBehaviour
 		} else {
 			Destroy (gameObject);
 		}
-		player=GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindGameObjectWithTag ("Player");
 		death = false;
 		deathObject = gameObject.transform.FindChild ("deathSprite").gameObject;
 		deathSprite = deathObject.GetComponent<SpriteRenderer> ();
@@ -61,7 +60,7 @@ public class cameraManager : MonoBehaviour
 		scaleY = deathObject.transform.localScale.y;
 		scaleZ = deathObject.transform.localScale.z;
 
-		setCamera();
+		setCamera ();
 	}
 	
 	// Update is called once per frame
@@ -72,11 +71,11 @@ public class cameraManager : MonoBehaviour
 		cameraZ = transform.position.z;
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			cameraDeath();
+			cameraDeath ();
 		}
 
-		if(Input.GetKeyDown(KeyCode.F)){
-			cameraFade();
+		if (Input.GetKeyDown (KeyCode.F)) {
+			cameraFade ();
 		}
 
 		if (fading) {
@@ -87,6 +86,7 @@ public class cameraManager : MonoBehaviour
 			if (t >= 1f) {
 				t = 0f;
 				fading = false;
+				player.GetComponent<CharacterControllerScript> ().canMove (true);
 			}
 
 			if (t > 0.5f && !moved) {
@@ -97,13 +97,13 @@ public class cameraManager : MonoBehaviour
 		}
 
 		if (death) {
-			if(t<1f){
-			t += Time.deltaTime / deathDuration;
-			deathObject.transform.localScale = new Vector3 (scaleX-9.3f*t,scaleY-9.3f*t,scaleZ);
+			if (t < 1f) {
+				t += Time.deltaTime / deathDuration;
+				deathObject.transform.localScale = new Vector3 (scaleX - 9.3f * t, scaleY - 9.3f * t, scaleZ);
 			}
 
-			if(t>=1f){
-				changeAlpha(levelSprite,1f);
+			if (t >= 1f) {
+				changeAlpha (levelSprite, 1f);
 			}
 			
 		}
@@ -115,15 +115,17 @@ public class cameraManager : MonoBehaviour
 	public void cameraFade ()
 	{
 		fading = true;
-		moved=false;
-		nextX = cameraX + width -playerDimension;
-
+		moved = false;
+		nextX = cameraX + width - playerDimension;
+		player.GetComponent<CharacterControllerScript> ().canMove (false);
+		
 
 	}
 
-	public void cameraDeath(){
-		changeAlpha(deathSprite,1f);
-		deathObject.transform.position=player.transform.position;
+	public void cameraDeath ()
+	{
+		changeAlpha (deathSprite, 1f);
+		deathObject.transform.position = player.transform.position;
 		death = true;
 	}
 	
@@ -146,9 +148,10 @@ public class cameraManager : MonoBehaviour
 		return (float)(n1 * n2_2);
 	}
 
-	public void setCamera(){
-		Vector3 cameraPos = new Vector3(player.transform.position.x+width/2-playerDimension, transform.position.y, transform.position.z);
-		transform.position=cameraPos;
+	public void setCamera ()
+	{
+		Vector3 cameraPos = new Vector3 (player.transform.position.x + width / 2 - playerDimension, transform.position.y, transform.position.z);
+		transform.position = cameraPos;
 	}
 }
 
