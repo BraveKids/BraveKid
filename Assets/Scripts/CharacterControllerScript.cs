@@ -52,7 +52,7 @@ public class CharacterControllerScript : MonoBehaviour {
 		canInteractBool = false;
 		interact = false;
 		rockGrabbed = false;
-		SaveLoad.spawn();
+
 	
 
 	}

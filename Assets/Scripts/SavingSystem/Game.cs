@@ -9,10 +9,11 @@ public class Game {
 	public float playerX;
 	public float playerY;
 	public bool firstGame = true;
+	public int level;
 
 	public Game () {
 
-	
+		level = 0;
 		
 	}
 
