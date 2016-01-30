@@ -68,8 +68,7 @@ public class cameraManager : MonoBehaviour
 		for (int i = 1; i<=3; i++) {
 			levels.Add (GameObject.Find ("Level" + i));
 		}
-		setCamera ();
-		
+		setCamera ();		
 	}
 	
 	// Update is called once per frame
@@ -124,7 +123,7 @@ public class cameraManager : MonoBehaviour
 	{
 		fading = true;
 		moved = false;
-		level++;
+		level=SaveLoad.savedGame.level;
 		nextX = levels [level].transform.position.x;
 		player.GetComponent<CharacterControllerScript> ().canMove (false);	
 		movePlayer(nextX-playerDimension);

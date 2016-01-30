@@ -36,25 +36,12 @@ public class SaveLoad
 	public static void ContinueGame ()
 	{
 		Load ();
-		Debug.Log ("Continued");
 	}
 
-	public static void SaveGame (float playerX, float playerY)
+	public static void SaveGame ()
 	{
-		savedGame.playerX = playerX;
-		savedGame.playerY = playerY;
-
-		Save ();
-		Debug.Log(Application.persistentDataPath);
-		
+		Save ();		
 	}
-	
-	public static  void FirstGame ()
-	{
-		savedGame.firstGame = true;
-	}
-
-
 
 	public static void getPlayer ()
 	{
