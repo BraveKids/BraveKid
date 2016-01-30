@@ -35,7 +35,7 @@ public class cameraManager : MonoBehaviour
 	public float playerDimension;
 	public List<GameObject> levels;
 
-	public int level=0;
+	public int level;
 	public int numLevels;
 
 	// Use this for initialization

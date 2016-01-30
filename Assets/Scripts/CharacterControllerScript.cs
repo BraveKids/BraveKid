@@ -37,6 +37,8 @@ public class CharacterControllerScript : MonoBehaviour {
 	bool Move;
 	public bool canHide;
 	public bool hidden;
+	public bool canSlideWall;
+	public bool wallBack;
 	float groundRadius = 0.1f;
 	public LayerMask whatIsGround; //cosa il character deve considerare ground es. il terreno, i nemici...
 	public float jumpForce;	
@@ -86,11 +88,11 @@ public class CharacterControllerScript : MonoBehaviour {
 
 
 	void RockThrow(){
-		if (Input.GetKeyDown (KeyCode.G) && !hidden && rockGrabbed) {
+		if (Input.GetKeyDown (KeyCode.G) && !hidden && !wallBack && rockGrabbed) {
 			rockGrabbed = false;
 			anim.Play("toss");
 			rb.velocity = new Vector2(0,0);
-			Move = false;
+			//Move = false;
 			Invoke ("Toss", 0.4f);
 
 		}
@@ -112,7 +114,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	void Movement () {
 		if (Move) {
-			if (Input.GetKey (KeyCode.F) && grounded) {
+			if (Input.GetKey (KeyCode.F) && grounded && !hidden && !wallBack) {
 				maxSpeed = 0.5f;
 				anim.SetBool("slow", true);
 			} else {
@@ -134,11 +136,23 @@ public class CharacterControllerScript : MonoBehaviour {
 				gameObject.layer = 8;
 				hidden = true;
 			}
+			if (Input.GetKeyDown (KeyCode.UpArrow) && canSlideWall) {
+				anim.SetBool("wall", true);
+				gameObject.layer = 8;
+				wallBack = true;
+			}
+
 			if (Input.GetKeyDown (KeyCode.DownArrow) && hidden) {
 				sprite.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
 				currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
 				gameObject.layer = 9;
 				hidden = false;
+			}
+
+			if (Input.GetKeyDown (KeyCode.DownArrow) && wallBack) {
+				anim.SetBool("wall", false);
+				gameObject.layer = 9;
+				wallBack = false;
 			}
 			/*if ( grounded  && (Input.GetKeyDown (KeyCode.Joystick1Button0) || Input.GetKeyDown (KeyCode.Space)) && rb.velocity.y<=0.5) {
 
@@ -150,7 +164,7 @@ public class CharacterControllerScript : MonoBehaviour {
 			grounded = groundedLeft || groundedRight;
 		
 			float move = Input.GetAxis ("Horizontal");
-			if (move != 0) {
+			if (move != 0 && !wallBack) {
 				if (fantasyArmor.activeSelf == true) {
 					currentArmor = fantasyArmorWalking;
 					fantasyArmorIdle.SetActive (false);
@@ -283,6 +297,20 @@ public class CharacterControllerScript : MonoBehaviour {
 		if (other.CompareTag ("HidePlace")) {
 			canHide = true;
 		}
+		if(other.CompareTag("Wall")){
+			canSlideWall = true;
+			if(!anim.GetBool("death")){
+			if(fantasyArmor.activeSelf ==true){
+				fantasyArmorIdle.SetActive(true);
+				fantasyArmorWalking.SetActive(false);
+			
+			}else{
+				normalArmorIdle.SetActive(true);
+				normalArmorWalking.SetActive(false);
+			}
+		}
+			}
+
 	
 	}
 
@@ -295,9 +323,20 @@ public class CharacterControllerScript : MonoBehaviour {
 			gameObject.layer = 9;
 			hidden = false;
 		}
+		
+		if (other.CompareTag ("WallBack")) {
+			canSlideWall = false;
+			wallBack = false;
+			anim.SetBool("wall",false);
+			gameObject.layer = 9;
+		}
+
 		if (other.CompareTag ("HidePlace")) {
 			canHide = false;
 		}
+		if(other.CompareTag("Wall")){
+				canSlideWall = false;
+			}
 		
 	}
 	public void canMove(bool move){
@@ -327,11 +366,12 @@ public class CharacterControllerScript : MonoBehaviour {
 	}
 
 	public void GameOver(){
+		sprite.GetComponent<SpriteRenderer> ().sortingLayerName = "Superground";
 		fantasyArmorIdle.SetActive (false);
 		fantasyArmorWalking.SetActive (false);
 		normalArmorIdle.SetActive (false);
 		normalArmorWalking.SetActive (false);
-		anim.SetTrigger ("death");
+		anim.SetBool ("death",true);
 		cameraManager.instance.cameraDeath ();
 	}
 
