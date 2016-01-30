@@ -4,7 +4,16 @@ using System.Collections;
 public class CharacterControllerScript : MonoBehaviour {
 	public Transform Target;
 	Animator anim;
+	public GameObject sprite;
+	GameObject currentArmor;
+	public GameObject normalArmor;
+	public GameObject fantasyArmor;
+	public GameObject normalArmorIdle;
+	public GameObject fantasyArmorIdle;
+	public GameObject normalArmorWalking;
+	public GameObject fantasyArmorWalking;
 	public GameObject bullet;
+	bool underLight;
 	public bool interact;
 	public bool interactItemGrabbed;
 	public bool rockGrabbed;
@@ -44,6 +53,7 @@ public class CharacterControllerScript : MonoBehaviour {
 		interact = false;
 		rockGrabbed = false;
 		SaveLoad.spawn();
+	
 
 	}
 
@@ -54,6 +64,16 @@ public class CharacterControllerScript : MonoBehaviour {
 			Target.GetComponentInChildren<SpriteRenderer> ().enabled = true;
 		} else {
 			Target.GetComponentInChildren<SpriteRenderer> ().enabled = false;
+		}
+
+		if (underLight) {
+
+			fantasyArmor.SetActive (false);
+			normalArmor.SetActive(true);
+		} else {
+
+			fantasyArmor.SetActive (true);
+			normalArmor.SetActive(false);
 		}
 	
 		Movement ();
@@ -89,8 +109,10 @@ public class CharacterControllerScript : MonoBehaviour {
 		if (Move) {
 			if (Input.GetKey (KeyCode.F) && grounded) {
 				maxSpeed = 0.5f;
+				anim.SetBool("slow", true);
 			} else {
 				maxSpeed = 1.5f;
+				anim.SetBool("slow", false);
 			}
 			/*
 		if (Input.GetKeyDown (KeyCode.H)) {
@@ -102,12 +124,14 @@ public class CharacterControllerScript : MonoBehaviour {
 		*/
 
 			if (Input.GetKeyDown (KeyCode.UpArrow) && canHide) {
-				GetComponentInChildren<SpriteRenderer> ().sortingLayerName = "Middleground";
+				sprite.GetComponent<SpriteRenderer> ().sortingLayerName = "Middleground";
+				currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Middleground";
 				gameObject.layer = 8;
 				hidden = true;
 			}
-			if (Input.GetKeyDown (KeyCode.DownArrow)) {
-				GetComponentInChildren<SpriteRenderer> ().sortingLayerName = "Foreground";
+			if (Input.GetKeyDown (KeyCode.DownArrow) && hidden) {
+				sprite.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
+				currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
 				gameObject.layer = 9;
 				hidden = false;
 			}
@@ -121,20 +145,71 @@ public class CharacterControllerScript : MonoBehaviour {
 			grounded = groundedLeft || groundedRight;
 		
 			float move = Input.GetAxis ("Horizontal");
+			if (move != 0) {
+				if (fantasyArmor.activeSelf == true) {
+					currentArmor = fantasyArmorWalking;
+					fantasyArmorIdle.SetActive (false);
+					fantasyArmorWalking.SetActive (true);
+					if (hidden) {
+						currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Middleground";
+					} else {
+						currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
+					}
+
+				} else {
+					currentArmor = normalArmorWalking;
+					normalArmorIdle.SetActive (false);
+					normalArmorWalking.SetActive (true);
+					if (hidden) {
+						currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Middleground";
+					} else {
+						currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
+					}
+				}
+			} else {
+				if (fantasyArmor.activeSelf == true) {
+					currentArmor = fantasyArmorIdle;
+					fantasyArmorIdle.SetActive (true);
+					fantasyArmorWalking.SetActive (false);
+					if (hidden) {
+						currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Middleground";
+					} else {
+						currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
+					}
+				} else {
+					currentArmor = normalArmorIdle;
+					normalArmorIdle.SetActive (true);
+					normalArmorWalking.SetActive (false);
+					if (hidden) {
+						currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Middleground";
+					} else {
+						currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
+					}
+				}
+			}
 			// e quindi a far cambiare l'animazione da idle a run
 
 			rb.velocity = new Vector2 (move * maxSpeed, rb.velocity.y);
 
 			anim.SetFloat ("velocity", Mathf.Abs (move));
+
 			if (move > 0 && !facingRight) {
 				Flip ();
 			} else if (move < 0 && facingRight) {
 				Flip ();
 			}
 		} else {
-			anim.SetFloat("velocity", 0f);
+			anim.SetFloat ("velocity", 0f);
+			if (underLight) {
+				normalArmorIdle.SetActive (true);
+				normalArmorWalking.SetActive (false);
+
+			} else {
+				fantasyArmorIdle.SetActive (true);
+				fantasyArmorWalking.SetActive (false);
+			}
 		}
-		}
+	}
 
 
 
@@ -146,7 +221,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	}
 
 	public bool isSlow(){
-		if (maxSpeed == 3) {
+		if (maxSpeed == 1.5f) {
 			return false;
 		} else {
 			return true;
@@ -213,12 +288,17 @@ public class CharacterControllerScript : MonoBehaviour {
 	
 	}
 
+
 	void OnTriggerExit2D(Collider2D other){
 		if (other.CompareTag ("HideTrigger")) {
 			canHide = false;
-			GetComponentInChildren<SpriteRenderer>().sortingLayerName = "Foreground";
+			sprite.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
+			currentArmor.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
 			gameObject.layer = 9;
 			hidden = false;
+		}
+		if (other.CompareTag ("HidePlace")) {
+			canHide = false;
 		}
 		
 	}
@@ -244,6 +324,10 @@ public class CharacterControllerScript : MonoBehaviour {
 	public void setRockGrabbed(){
 		rockGrabbed = true;
 	}
+	public void setUnderLight(bool trigger){
+		underLight = trigger;
+	}
+
 
 
 

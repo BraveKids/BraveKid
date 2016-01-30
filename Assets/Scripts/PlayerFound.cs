@@ -17,10 +17,20 @@ public class PlayerFound : MonoBehaviour {
 		if (attack) {
 			if (player.transform.position.x > enemy.gameObject.transform.position.x) {
 				enemy.gameObject.transform.position = Vector3.MoveTowards (enemy.gameObject.transform.position, new Vector3 (player.transform.position.x - 3 , enemy.gameObject.transform.position.y, player.transform.position.z), Time.deltaTime * moveSpeed);
+				enemy.GetComponent<EnemyControllerScript>().Attack();
+				GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights");
+				for(int i=0; i<lights.Length;i++){
+					lights[i].SetActive(false);
+				}
 				enemy.GetComponent<EnemyControllerScript>().playerFound(true);
 			}else{
 				enemy.gameObject.transform.position = Vector3.MoveTowards (enemy.gameObject.transform.position, new Vector3 (player.transform.position.x + 3, enemy.gameObject.transform.position.y, player.transform.position.z), Time.deltaTime * moveSpeed);
-				enemy.GetComponent<EnemyControllerScript>().playerFound(true);
+					enemy.GetComponent<EnemyControllerScript>().Attack();
+				GameObject[] lights = GameObject.FindGameObjectsWithTag("Lights");
+				for(int i=0; i<lights.Length;i++){
+					lights[i].SetActive(false);
+				}
+					enemy.GetComponent<EnemyControllerScript>().playerFound(true);
 			}
 		}
 	}
@@ -30,7 +40,7 @@ public class PlayerFound : MonoBehaviour {
 			attack = true;
 			player.GetComponent<CharacterControllerScript>().canMove(false);
 			player.GetComponent<Rigidbody2D>().isKinematic = true;
-			enemy.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+			//enemy.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
 
 
 		}

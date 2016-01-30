@@ -1,21 +1,20 @@
 fileFormatVersion: 2
-guid: 0be53713e8ca2734bab030fbd120a25d
-timeCreated: 1454115467
+guid: ca03a7c8f46fc904983deac7b05c0d48
+timeCreated: 1454155829
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Test_GATTO LUCE_0
-    21300002: Test_GATTO LUCE_1
-    21300004: Test_GATTO LUCE_2
-    21300006: Test_GATTO LUCE_3
-    21300008: Test_GATTO LUCE_4
-    21300010: Test_GATTO LUCE_5
-    21300012: Test_GATTO LUCE_6
-    21300014: Test_GATTO LUCE_7
-    21300016: Test_GATTO LUCE_8
-    21300018: Test_GATTO LUCE_9
-    21300020: Test_GATTO LUCE_10
-    21300022: Test_GATTO LUCE_11
+    21300000: GATTO LUCE_0
+    21300002: GATTO LUCE_1
+    21300004: GATTO LUCE_2
+    21300006: GATTO LUCE_3
+    21300008: GATTO LUCE_4
+    21300010: GATTO LUCE_5
+    21300012: GATTO LUCE_6
+    21300014: GATTO LUCE_7
+    21300016: GATTO LUCE_8
+    21300018: GATTO LUCE_9
+    21300020: GATTO LUCE_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,125 +61,115 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Test_GATTO LUCE_0
+    - name: GATTO LUCE_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 125
-        width: 134
-        height: 67
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_1
-      rect:
-        serializedVersion: 2
-        x: 187
-        y: 127
-        width: 144
-        height: 69
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_2
-      rect:
-        serializedVersion: 2
-        x: 348
+        x: 26
         y: 126
-        width: 135
-        height: 68
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_3
-      rect:
-        serializedVersion: 2
-        x: 489
-        y: 131
-        width: 136
-        height: 63
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_4
-      rect:
-        serializedVersion: 2
-        x: 630
-        y: 134
-        width: 137
-        height: 62
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_5
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 31
-        width: 135
-        height: 60
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_6
-      rect:
-        serializedVersion: 2
-        x: 185
-        y: 33
-        width: 144
-        height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_7
-      rect:
-        serializedVersion: 2
-        x: 350
-        y: 33
-        width: 147
-        height: 65
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_8
-      rect:
-        serializedVersion: 2
-        x: 514
-        y: 33
-        width: 142
+        width: 140
         height: 66
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_9
+    - name: GATTO LUCE_1
       rect:
         serializedVersion: 2
-        x: 674
-        y: 31
-        width: 137
-        height: 68
+        x: 180
+        y: 126
+        width: 131
+        height: 67
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_10
+    - name: GATTO LUCE_2
       rect:
         serializedVersion: 2
-        x: 820
-        y: 29
-        width: 135
-        height: 70
+        x: 318
+        y: 128
+        width: 132
+        height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Test_GATTO LUCE_11
+    - name: GATTO LUCE_3
       rect:
         serializedVersion: 2
-        x: 955
-        y: 26
-        width: 150
-        height: 73
+        x: 463
+        y: 130
+        width: 131
+        height: 62
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GATTO LUCE_4
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 128
+        width: 130
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GATTO LUCE_5
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 129
+        width: 139
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GATTO LUCE_6
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 130
+        width: 141
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GATTO LUCE_7
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 28
+        width: 139
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GATTO LUCE_8
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 27
+        width: 134
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GATTO LUCE_9
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 25
+        width: 130
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GATTO LUCE_10
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 32
+        width: 142
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

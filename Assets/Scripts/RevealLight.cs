@@ -15,13 +15,19 @@ public class RevealLight : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.CompareTag ("Enemy")) {
-			other.gameObject.GetComponent<EnemyControllerScript>().intoTheLight(true);
+			other.gameObject.GetComponent<EnemyControllerScript> ().intoTheLight (true);
+		}
+		if (other.CompareTag ("Player")) {
+			other.GetComponent<CharacterControllerScript> ().setUnderLight (true);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
 		if (other.CompareTag ("Enemy")) {
 			other.gameObject.GetComponent<EnemyControllerScript>().intoTheLight(false);
+		}
+		if (other.CompareTag ("Player")) {
+			other.GetComponent<CharacterControllerScript> ().setUnderLight (false);
 		}
 	}
 
