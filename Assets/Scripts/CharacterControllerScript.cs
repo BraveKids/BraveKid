@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CharacterControllerScript : MonoBehaviour {
 	public Transform Target;
+	Animator anim;
 	public GameObject bullet;
 	public bool interact;
 	public bool interactItemGrabbed;
@@ -32,6 +33,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	public float jumpForce;	
 
 	void Awake () {
+		anim = GetComponentInChildren<Animator> ();
 		normalColor = GetComponentInChildren<SpriteRenderer> ().color;
 		Target.GetComponentInChildren<SpriteRenderer> ().enabled = false;
 		rb = GetComponent<Rigidbody2D> ();
@@ -57,6 +59,8 @@ public class CharacterControllerScript : MonoBehaviour {
 		RockThrow ();
 		Interact ();
 
+
+
 	}
 
 
@@ -72,7 +76,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 
 	void Interact(){
-		if (Input.GetKeyDown (KeyCode.H) && canInteractBool == true) {
+		if (Input.GetKeyDown (KeyCode.H) && canInteractBool == true && !hidden) {
 			interact = true;
 			canInteractBool = false;
 		} else {
@@ -81,13 +85,13 @@ public class CharacterControllerScript : MonoBehaviour {
 	}
 
 	void Movement () {
-		if(Input.GetKey(KeyCode.F) && grounded){
-			maxSpeed = 1;
-		}
-			else {
-			maxSpeed = 3;
-		}
-		/*
+		if (Move) {
+			if (Input.GetKey (KeyCode.F) && grounded) {
+				maxSpeed = 0.5f;
+			} else {
+				maxSpeed = 1.5f;
+			}
+			/*
 		if (Input.GetKeyDown (KeyCode.H)) {
 			anim.Play("respawn");
 		}
@@ -96,17 +100,17 @@ public class CharacterControllerScript : MonoBehaviour {
 		}	
 		*/
 
-		if(Input.GetKeyDown(KeyCode.UpArrow) && canHide){
-			GetComponentInChildren<SpriteRenderer>().sortingLayerName = "Middleground";
-			gameObject.layer = 8;
-			hidden = true;
-		}
-		if(Input.GetKeyDown(KeyCode.DownArrow)){
-			GetComponentInChildren<SpriteRenderer>().sortingLayerName = "Foreground";
-			gameObject.layer = 9;
-			hidden = false;
-		}
-		/*if ( grounded  && (Input.GetKeyDown (KeyCode.Joystick1Button0) || Input.GetKeyDown (KeyCode.Space)) && rb.velocity.y<=0.5) {
+			if (Input.GetKeyDown (KeyCode.UpArrow) && canHide) {
+				GetComponentInChildren<SpriteRenderer> ().sortingLayerName = "Middleground";
+				gameObject.layer = 8;
+				hidden = true;
+			}
+			if (Input.GetKeyDown (KeyCode.DownArrow)) {
+				GetComponentInChildren<SpriteRenderer> ().sortingLayerName = "Foreground";
+				gameObject.layer = 9;
+				hidden = false;
+			}
+			/*if ( grounded  && (Input.GetKeyDown (KeyCode.Joystick1Button0) || Input.GetKeyDown (KeyCode.Space)) && rb.velocity.y<=0.5) {
 
 			rb.AddForce (new Vector2 (0, jumpForce));
 		}*/
@@ -117,14 +121,18 @@ public class CharacterControllerScript : MonoBehaviour {
 		
 			float move = Input.GetAxis ("Horizontal");
 			// e quindi a far cambiare l'animazione da idle a run
-			if (Move) {
+
 			rb.velocity = new Vector2 (move * maxSpeed, rb.velocity.y);
-		}
+
+			anim.SetFloat ("velocity", Mathf.Abs (move));
 			if (move > 0 && !facingRight) {
 				Flip ();
 			} else if (move < 0 && facingRight) {
 				Flip ();
 			}
+		} else {
+			anim.SetFloat("velocity", 0f);
+		}
 		}
 
 

@@ -33,7 +33,7 @@ public class cameraManager : MonoBehaviour
 	public static cameraManager instance = null;
 	bool death;
 	GameObject player;
-	float playerDimension;
+	public float playerDimension;
 
 	// Use this for initialization
 	void Start ()
@@ -74,11 +74,11 @@ public class cameraManager : MonoBehaviour
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			cameraDeath();
 		}
-
+		/*
 		if(Input.GetKeyDown(KeyCode.F)){
 			cameraFade();
 		}
-
+		*/
 		if (fading) {
 			t += Time.deltaTime / levelPassageDuration;
 			alpha = nextGaussian (t);
