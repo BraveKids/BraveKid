@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-public class SaveLoad {
+public class SaveLoad
+{
 
 	public static string SAVING_PATH = Application.persistentDataPath + "/savedGames.gd";
 	public static Game savedGame = new Game ();
@@ -13,7 +14,8 @@ public class SaveLoad {
 
 
 	//it's static so we can call it from anywhere
-	public static  void Save () {
+	public static  void Save ()
+	{
 		BinaryFormatter bf = new BinaryFormatter ();
 		//Application.persistentDataPath is a string, so if you wanted you can put that into debug.log if you want to know where save games are located
 		FileStream file = File.Create (SAVING_PATH); //you can call it anything you want
@@ -21,7 +23,8 @@ public class SaveLoad {
 		file.Close ();
 	}
 	
-	public static void Load () {
+	public static void Load ()
+	{
 		if (File.Exists (SAVING_PATH)) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (SAVING_PATH, FileMode.Open);
@@ -30,12 +33,14 @@ public class SaveLoad {
 		}
 	}
 
-	public static void ContinueGame () {
+	public static void ContinueGame ()
+	{
 		Load ();
 		Debug.Log ("Continued");
 	}
 
-	public static void SaveGame (float playerX, float playerY, float cameraX, float cameraY) {
+	public static void SaveGame (float playerX, float playerY, float cameraX, float cameraY)
+	{
 		savedGame.playerX = playerX;
 		savedGame.playerY = playerY;
 
@@ -43,13 +48,16 @@ public class SaveLoad {
 		
 	}
 	
-	public static  void FirstGame () {
+	public static  void FirstGame ()
+	{
 		savedGame.firstGame = true;
 	}
 
-
-	public static void spawnCamera () {
-
+	public static void spawn ()
+	{
+		if (player == null) {
+			getPlayer ();
+		}
 		if (savedGame.firstGame) {
 			GameObject startPoint = GameObject.FindGameObjectWithTag ("startPoint");
 			savedGame.playerX = startPoint.transform.position.x;
@@ -58,6 +66,12 @@ public class SaveLoad {
 		}
 		Vector3 playerPos = new Vector3 (SaveLoad.savedGame.playerX, SaveLoad.savedGame.playerY, player.transform.position.z);
 		player.transform.position = playerPos;
+		Debug.Log("personaggio: "+player.transform.position.ToString()+" salvataggio: "+SaveLoad.savedGame.playerX+" "+SaveLoad.savedGame.playerY);
+	}
+
+	public static void getPlayer ()
+	{
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 
