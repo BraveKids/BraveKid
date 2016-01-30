@@ -12,13 +12,14 @@ public class menuManager : MonoBehaviour
 	// Use this for initialization
 	int row;
 	int column;
-	GameObject selected;
+	//GameObject selected;
+	string selected;
 	float transitionDuration;
 	float t;
 	float scaleX;
 	float scaleY;
 	float scaleZ;
-	bool canContinue = false;
+	bool canContinue = true;
 	GameObject newGame;
 	GameObject continueGame;
 	GameObject credits;
@@ -44,8 +45,8 @@ public class menuManager : MonoBehaviour
 		scaleY = buttons [0] [0].transform.localScale.y;
 		scaleZ = buttons [0] [0].transform.localScale.z;
 
-		if(!canContinue){
-			disableContinue();
+		if (!canContinue) {
+			disableContinue ();
 
 		}
 	}
@@ -53,6 +54,18 @@ public class menuManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		selected = buttons [column] [row].transform.name;
+		Debug.Log(selected);
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			if (selected == "continue") {
+				SaveLoad.Load ();
+				Application.LoadLevel ("Gameplay");
+			}
+
+			if (selected == "newGame") {
+				Application.LoadLevel ("Gameplay");
+			}
+		}
 		if (Input.GetKey ("right")) {
 			changeButton (1, row);
 		}
@@ -84,7 +97,6 @@ public class menuManager : MonoBehaviour
 			}
 		}
 
-		Debug.Log ("selected: " + buttons [column] [row].ToString ());
 		
 
 		
@@ -92,11 +104,15 @@ public class menuManager : MonoBehaviour
 
 	void changeButton (int column, int row)
 	{
-		if (buttons [column] [row].transform.name == "continue" && !canContinue){return;} 
-			buttons [this.column] [this.row].transform.GetChild (0).transform.localScale = new Vector3 (scaleX, scaleY, scaleZ);
+		if (buttons [column] [row].transform.name == "continue" && !canContinue) {
+			return;
+		} 
+		buttons [this.column] [this.row].transform.GetChild (0).transform.localScale = new Vector3 (scaleX, scaleY, scaleZ);
 
-			this.column = column;
-			this.row = row;
+		this.column = column;
+		this.row = row;
+			
+			
 		
 	}
 
@@ -112,8 +128,9 @@ public class menuManager : MonoBehaviour
 		return (float)(n1 * n2_2);
 	}
 
-	void disableContinue(){
-		continueGame.transform.GetComponentInChildren<Text>().color=Color.gray;
+	void disableContinue ()
+	{
+		continueGame.transform.GetComponentInChildren<Text> ().color = Color.gray;
 	
 	}
 }

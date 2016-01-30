@@ -39,12 +39,13 @@ public class SaveLoad
 		Debug.Log ("Continued");
 	}
 
-	public static void SaveGame (float playerX, float playerY, float cameraX, float cameraY)
+	public static void SaveGame (float playerX, float playerY)
 	{
 		savedGame.playerX = playerX;
 		savedGame.playerY = playerY;
 
 		Save ();
+		Debug.Log(Application.persistentDataPath);
 		
 	}
 	
@@ -66,7 +67,6 @@ public class SaveLoad
 		}
 		Vector3 playerPos = new Vector3 (SaveLoad.savedGame.playerX, SaveLoad.savedGame.playerY, player.transform.position.z);
 		player.transform.position = playerPos;
-		Debug.Log("personaggio: "+player.transform.position.ToString()+" salvataggio: "+SaveLoad.savedGame.playerX+" "+SaveLoad.savedGame.playerY);
 
 	}
 

@@ -81,7 +81,6 @@ public class cameraManager : MonoBehaviour
 		if (fading) {
 			t += Time.deltaTime / levelPassageDuration;
 			alpha = nextGaussian (t);
-			Debug.Log (nextGaussian (t));
 				
 			if (t >= 1f) {
 				t = 0f;

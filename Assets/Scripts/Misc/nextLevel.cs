@@ -8,9 +8,9 @@ public class nextLevel : MonoBehaviour
 	{
 		
 		if (other.CompareTag ("Player")) {
-			Debug.Log("sbam");
 			cameraManager.instance.cameraFade();
-			SaveLoad.Save();
+			SaveLoad.savedGame.firstGame=false;
+			SaveLoad.SaveGame(other.transform.position.x,other.transform.position.y);
 		}
 	}
 }
