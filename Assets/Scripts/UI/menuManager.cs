@@ -65,6 +65,10 @@ public class menuManager : MonoBehaviour
 			if (selected == "newGame") {
 				Application.LoadLevel ("Gameplay");
 			}
+
+			if(selected == "exitGame"){
+				Application.Quit ();
+			}
 		}
 		if (Input.GetKey ("right")) {
 			changeButton (1, row);

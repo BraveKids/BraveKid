@@ -85,9 +85,6 @@ public class cameraManager : MonoBehaviour
 		cameraY = transform.position.y;
 		cameraZ = transform.position.z;
 
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			cameraDeath ();
-		}
 
 		if (fading) {
 			t += Time.deltaTime / levelPassageDuration;
