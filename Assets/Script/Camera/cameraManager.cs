@@ -33,7 +33,7 @@ public class cameraManager : MonoBehaviour
 	public static cameraManager instance = null;
 	bool death;
 	GameObject player;
-	float playerDimension;
+	public float playerDimension;
 
 	// Use this for initialization
 	void Start ()
@@ -115,9 +115,15 @@ public class cameraManager : MonoBehaviour
 	public void cameraFade ()
 	{
 		fading = true;
+<<<<<<< Updated upstream:Assets/Script/Camera/cameraManager.cs
 		moved=false;
 		nextX = cameraX + width -playerDimension;
 
+=======
+		moved = false;
+		nextX = cameraX + width - playerDimension;
+		player.GetComponent<CharacterControllerScript> ().canMove (false);	
+>>>>>>> Stashed changes:Assets/Scripts/Camera/cameraManager.cs
 
 	}
 

@@ -58,6 +58,14 @@ public class SaveLoad {
 		}
 		Vector3 playerPos = new Vector3 (SaveLoad.savedGame.playerX, SaveLoad.savedGame.playerY, player.transform.position.z);
 		player.transform.position = playerPos;
+<<<<<<< Updated upstream:Assets/Script/SavingSystem/SaveLoad.cs
+=======
+	}
+
+	public static void getPlayer ()
+	{
+		player = GameObject.FindGameObjectWithTag ("Player");
+>>>>>>> Stashed changes:Assets/Scripts/SavingSystem/SaveLoad.cs
 	}
 
 
