@@ -24,7 +24,7 @@ public class cameraManager : MonoBehaviour
 	bool fading;
 	float t;
 	float levelPassageDuration = 1.25f;
-	float deathDuration = 5f;
+	float deathDuration = 1f;
 	
 	bool moved;
 	SpriteRenderer levelSprite;
@@ -33,7 +33,7 @@ public class cameraManager : MonoBehaviour
 	public static cameraManager instance = null;
 	bool death;
 	GameObject player;
-	
+	float playerDimension;
 
 	// Use this for initialization
 	void Start ()
@@ -60,6 +60,8 @@ public class cameraManager : MonoBehaviour
 		scaleX = deathObject.transform.localScale.x;
 		scaleY = deathObject.transform.localScale.y;
 		scaleZ = deathObject.transform.localScale.z;
+
+		setCamera();
 	}
 	
 	// Update is called once per frame
@@ -70,8 +72,11 @@ public class cameraManager : MonoBehaviour
 		cameraZ = transform.position.z;
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			//cameraFade ();
 			cameraDeath();
+		}
+
+		if(Input.GetKeyDown(KeyCode.F)){
+			cameraFade();
 		}
 
 		if (fading) {
@@ -94,7 +99,11 @@ public class cameraManager : MonoBehaviour
 		if (death) {
 			if(t<1f){
 			t += Time.deltaTime / deathDuration;
-			deathObject.transform.localScale = new Vector3 (scaleX-1f*t,scaleY-1f*t,scaleZ);
+			deathObject.transform.localScale = new Vector3 (scaleX-9.3f*t,scaleY-9.3f*t,scaleZ);
+			}
+
+			if(t>=1f){
+				changeAlpha(levelSprite,1f);
 			}
 			
 		}
@@ -107,7 +116,7 @@ public class cameraManager : MonoBehaviour
 	{
 		fading = true;
 		moved=false;
-		nextX = cameraX + width;
+		nextX = cameraX + width -playerDimension;
 
 
 	}
@@ -135,6 +144,11 @@ public class cameraManager : MonoBehaviour
 		double n2_2 = Math.Exp (-0.5 * Math.Pow (n2_1, 2));
 		
 		return (float)(n1 * n2_2);
+	}
+
+	public void setCamera(){
+		Vector3 cameraPos = new Vector3(player.transform.position.x+width/2-playerDimension, transform.position.y, transform.position.z);
+		transform.position=cameraPos;
 	}
 }
 
