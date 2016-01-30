@@ -40,6 +40,7 @@ public class PlayerFound : MonoBehaviour {
 			attack = true;
 			player.GetComponent<CharacterControllerScript>().canMove(false);
 			player.GetComponent<Rigidbody2D>().isKinematic = true;
+			player.GetComponent<CharacterControllerScript>().GameOver();
 			//enemy.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
 
 

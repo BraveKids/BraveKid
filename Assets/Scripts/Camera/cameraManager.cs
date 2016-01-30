@@ -24,7 +24,7 @@ public class cameraManager : MonoBehaviour
 	bool fading;
 	float t;
 	float levelPassageDuration = 1.25f;
-	float deathDuration = 1f;
+	float deathDuration = 2f;
 	bool moved;
 	SpriteRenderer levelSprite;
 	GameObject deathObject;

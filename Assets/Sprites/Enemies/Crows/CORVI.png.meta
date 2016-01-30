@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: 760fb7843e5726c49890d729d11d58a4
+timeCreated: 1454179669
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CORVI_0
+    21300002: CORVI_1
+    21300004: CORVI_2
+    21300006: CORVI_3
+    21300008: CORVI_4
+    21300010: CORVI_5
+    21300012: CORVI_6
+    21300014: CORVI_7
+    21300016: CORVI_8
+    21300018: CORVI_9
+    21300020: CORVI_10
+    21300022: CORVI_11
+    21300024: CORVI_12
+    21300026: CORVI_13
+    21300028: CORVI_14
+    21300030: CORVI_15
+    21300032: CORVI_16
+    21300034: CORVI_17
+    21300036: CORVI_18
+    21300038: CORVI_19
+    21300040: CORVI_20
+    21300042: CORVI_21
+    21300044: CORVI_22
+    21300046: CORVI_23
+    21300048: CORVI_24
+    21300050: CORVI_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CORVI_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 473
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 473
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_2
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 473
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_3
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 473
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 385
+        width: 42
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 385
+        width: 42
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_6
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 385
+        width: 42
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_7
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 385
+        width: 42
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_8
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 443
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_9
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 279
+        width: 106
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_10
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 302
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_11
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 302
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_12
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 302
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_13
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 302
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_14
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 228
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_15
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 228
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_16
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 228
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_17
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 228
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_18
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 260
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_19
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 79
+        width: 108
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_20
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 84
+        width: 122
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_21
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 84
+        width: 145
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_22
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 72
+        width: 135
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_23
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 70
+        width: 120
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_24
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 80
+        width: 142
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CORVI_25
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 51
+        width: 142
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

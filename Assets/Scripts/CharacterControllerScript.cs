@@ -88,11 +88,16 @@ public class CharacterControllerScript : MonoBehaviour {
 	void RockThrow(){
 		if (Input.GetKeyDown (KeyCode.G) && !hidden && rockGrabbed) {
 			rockGrabbed = false;
-
+			anim.Play("toss");
 			rb.velocity = new Vector2(0,0);
 			Move = false;
-			StartCoroutine(SimulateProjectile());
+			Invoke ("Toss", 0.4f);
+
 		}
+	}
+
+	void Toss(){
+		StartCoroutine(SimulateProjectile());
 	}
 
 
@@ -191,7 +196,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 			rb.velocity = new Vector2 (move * maxSpeed, rb.velocity.y);
 
-			anim.SetFloat ("velocity", Mathf.Abs (move));
+			anim.SetFloat ("speed", Mathf.Abs (move));
 
 			if (move > 0 && !facingRight) {
 				Flip ();
@@ -199,15 +204,8 @@ public class CharacterControllerScript : MonoBehaviour {
 				Flip ();
 			}
 		} else {
-			anim.SetFloat ("velocity", 0f);
-			if (underLight) {
-				normalArmorIdle.SetActive (true);
-				normalArmorWalking.SetActive (false);
+			anim.SetFloat ("speed", 0f);
 
-			} else {
-				fantasyArmorIdle.SetActive (true);
-				fantasyArmorWalking.SetActive (false);
-			}
 		}
 	}
 
@@ -326,6 +324,15 @@ public class CharacterControllerScript : MonoBehaviour {
 	}
 	public void setUnderLight(bool trigger){
 		underLight = trigger;
+	}
+
+	public void GameOver(){
+		fantasyArmorIdle.SetActive (false);
+		fantasyArmorWalking.SetActive (false);
+		normalArmorIdle.SetActive (false);
+		normalArmorWalking.SetActive (false);
+		anim.SetTrigger ("death");
+		cameraManager.instance.cameraDeath ();
 	}
 
 

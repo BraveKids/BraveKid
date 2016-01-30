@@ -7,7 +7,7 @@ public class SavePoint : MonoBehaviour {
 	private bool onNewLevel = false;
 	string id;
 	public bool save;
-	Animator anim;
+	//Animator anim;
 	void Start () {
 	
 
@@ -18,7 +18,7 @@ public class SavePoint : MonoBehaviour {
 		if (other.CompareTag ("Player") && usable) {
 
 			if(!save && usable){
-				anim.Play("checkpoint");
+				//anim.Play("checkpoint");
 			}
 
 			usable = false;

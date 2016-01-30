@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 423f3a6df8590b346a303efb4b70ecff
+timeCreated: 1454178381
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kidGameOverSprite_0
+    21300002: kidGameOverSprite_1
+    21300004: kidGameOverSprite_2
+    21300006: kidGameOverSprite_3
+    21300008: kidGameOverSprite_4
+    21300010: kidGameOverSprite_5
+    21300012: kidGameOverSprite_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kidGameOverSprite_0
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 28
+        width: 187
+        height: 323
+      alignment: 9
+      pivot: {x: .438290447, y: .531756818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidGameOverSprite_1
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 28
+        width: 186
+        height: 323
+      alignment: 9
+      pivot: {x: .437958598, y: .531756818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidGameOverSprite_2
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 28
+        width: 187
+        height: 323
+      alignment: 9
+      pivot: {x: .44514668, y: .527787209}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidGameOverSprite_3
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 28
+        width: 185
+        height: 323
+      alignment: 9
+      pivot: {x: .45148465, y: .527787209}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidGameOverSprite_4
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 29
+        width: 203
+        height: 314
+      alignment: 9
+      pivot: {x: .424205154, y: .675585985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidGameOverSprite_5
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 29
+        width: 200
+        height: 227
+      alignment: 9
+      pivot: {x: .397424936, y: .708990633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidGameOverSprite_6
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 33
+        width: 201
+        height: 223
+      alignment: 9
+      pivot: {x: .37241891, y: .890980601}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
