@@ -117,8 +117,8 @@ public class cameraManager : MonoBehaviour
 		fading = true;
 		moved = false;
 		nextX = cameraX + width - playerDimension;
-		player.GetComponent<CharacterControllerScript> ().canMove (false);
-		
+		player.GetComponent<CharacterControllerScript> ().canMove (false);	
+
 
 	}
 
