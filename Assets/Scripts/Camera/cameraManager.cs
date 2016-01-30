@@ -162,7 +162,7 @@ public class cameraManager : MonoBehaviour
 		level = SaveLoad.savedGame.level;
 		Vector3 cameraPos = new Vector3 (levels [level].transform.FindChild ("background").position.x, levels [level].transform.FindChild ("background").position.y, transform.position.z);
 		transform.position = cameraPos;
-		movePlayer(transform.position.x);
+		movePlayer(transform.position.x - playerDimension);
 	}
 
 	public void movePlayer(float x){
