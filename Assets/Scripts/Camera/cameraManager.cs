@@ -34,8 +34,10 @@ public class cameraManager : MonoBehaviour
 	GameObject player;
 	public float playerDimension;
 	public List<GameObject> levels;
+
 	public int level=0;
 	public int numLevels;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -66,6 +68,7 @@ public class cameraManager : MonoBehaviour
 
 
 		for (int i = 1; i<=numLevels; i++) {
+
 			levels.Add (GameObject.Find ("Level" + i));
 		}
 		setCamera ();
@@ -125,7 +128,6 @@ public class cameraManager : MonoBehaviour
 		fading = true;
 		moved = false;
 		level +=1;
-
 		nextX = levels [level].transform.position.x;
 		player.GetComponent<CharacterControllerScript> ().canMove (false);	
 		movePlayer(nextX-playerDimension);
