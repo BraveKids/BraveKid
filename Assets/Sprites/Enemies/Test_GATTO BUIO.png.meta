@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 09e95f76f25bae24680126a2866dec2b
+timeCreated: 1454115394
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Test_GATTO BUIO_0
+    21300002: Test_GATTO BUIO_1
+    21300004: Test_GATTO BUIO_2
+    21300006: Test_GATTO BUIO_3
+    21300008: Test_GATTO BUIO_4
+    21300010: Test_GATTO BUIO_5
+    21300012: Test_GATTO BUIO_6
+    21300014: Test_GATTO BUIO_7
+    21300016: Test_GATTO BUIO_8
+    21300018: Test_GATTO BUIO_9
+    21300020: Test_GATTO BUIO_10
+    21300022: Test_GATTO BUIO_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Test_GATTO BUIO_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 126
+        width: 131
+        height: 67
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_1
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 128
+        width: 141
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_2
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 125
+        width: 137
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_3
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 127
+        width: 136
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_4
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 135
+        width: 136
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_5
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 30
+        width: 133
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_6
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 31
+        width: 144
+        height: 67
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_7
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 31
+        width: 146
+        height: 67
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_8
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 37
+        width: 142
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_9
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 29
+        width: 136
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_10
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 32
+        width: 134
+        height: 67
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Test_GATTO BUIO_11
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 29
+        width: 146
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
