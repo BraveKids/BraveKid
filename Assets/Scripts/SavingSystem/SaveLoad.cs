@@ -67,12 +67,13 @@ public class SaveLoad
 		Vector3 playerPos = new Vector3 (SaveLoad.savedGame.playerX, SaveLoad.savedGame.playerY, player.transform.position.z);
 		player.transform.position = playerPos;
 		Debug.Log("personaggio: "+player.transform.position.ToString()+" salvataggio: "+SaveLoad.savedGame.playerX+" "+SaveLoad.savedGame.playerY);
+
 	}
 
 	public static void getPlayer ()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
-	}
+
 
 
 
