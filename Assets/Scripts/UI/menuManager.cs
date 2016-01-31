@@ -39,6 +39,8 @@ public class menuManager : MonoBehaviour
 	public Sprite grayExit;
 	public AudioClip button;
 
+	public GameObject creditsSlide;
+
 	void Start ()
 	{
 		
@@ -102,6 +104,10 @@ public class menuManager : MonoBehaviour
 
 			if (selected == "exitGame") {
 				Application.Quit ();
+			}
+
+			if (selected == "credits") {
+				toCredits();
 			}
 		}
 		if (Input.GetKey ("right")) {
@@ -194,6 +200,11 @@ public class menuManager : MonoBehaviour
 			buttons [column] [row].GetComponent<Image> ().sprite = coloredSprites [column] [row];
 			
 		}
+	}
+
+	public void toCredits(){
+		creditsSlide.SetActive(true);
+		gameObject.SetActive(false);
 	}
 
 
