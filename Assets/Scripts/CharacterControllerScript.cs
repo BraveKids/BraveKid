@@ -340,6 +340,8 @@ public class CharacterControllerScript : MonoBehaviour {
 		
 	}
 	public void canMove(bool move){
+		Debug.Log("sto fermo");
+		
 		Move = move;
 	}
 

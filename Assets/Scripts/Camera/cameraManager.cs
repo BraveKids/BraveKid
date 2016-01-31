@@ -32,11 +32,16 @@ public class cameraManager : MonoBehaviour
 	public static cameraManager instance = null;
 	bool death;
 	GameObject player;
-	public float playerDimension;
+	public float playerDimension = 8;
 	public List<GameObject> levels;
 
 	public int level;
+
+	bool chasing;
+	float playerCameraOffset;
+
 	public int numLevels;
+
 
 	// Use this for initialization
 	void Start ()
@@ -49,6 +54,7 @@ public class cameraManager : MonoBehaviour
 			Destroy (gameObject);
 		}
 
+		chasing = false;
 		levels = new List<GameObject> ();
 		player = GameObject.FindGameObjectWithTag ("Player");
 		death = false;
@@ -81,14 +87,7 @@ public class cameraManager : MonoBehaviour
 		cameraY = transform.position.y;
 		cameraZ = transform.position.z;
 
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			cameraDeath ();
-		}
-		/*
-		if(Input.GetKeyDown(KeyCode.F)){
-			cameraFade();
-		}
-		*/
+
 		if (fading) {
 			t += Time.deltaTime / levelPassageDuration;
 			alpha = nextGaussian (t);
@@ -114,8 +113,15 @@ public class cameraManager : MonoBehaviour
 
 			if (t >= 1f) {
 				changeAlpha (levelSprite, 1f);
+
+				Application.LoadLevel (Application.loadedLevel);	//level reset
+				
 			}
 			
+		}
+
+		if (chasing) {
+			transform.position=new Vector3(player.transform.position.x-playerCameraOffset, transform.position.y,transform.position.z);
 		}
 
 
@@ -126,10 +132,10 @@ public class cameraManager : MonoBehaviour
 	{
 		fading = true;
 		moved = false;
-		level=SaveLoad.savedGame.level;
+		level = SaveLoad.savedGame.level;
 		nextX = levels [level].transform.position.x;
 		player.GetComponent<CharacterControllerScript> ().canMove (false);	
-		movePlayer(nextX-playerDimension);
+		movePlayer (nextX - playerDimension);
 
 	}
 
@@ -164,13 +170,21 @@ public class cameraManager : MonoBehaviour
 		level = SaveLoad.savedGame.level;
 		Vector3 cameraPos = new Vector3 (levels [level].transform.FindChild ("background").position.x, levels [level].transform.FindChild ("background").position.y, transform.position.z);
 		transform.position = cameraPos;
-		movePlayer(transform.position.x - playerDimension);
+		movePlayer (transform.position.x - playerDimension);
 	}
 
-	public void movePlayer(float x){
-		player.transform.position= new Vector3(x, player.transform.position.y, player.transform.position.z);
+	public void movePlayer (float x)
+	{
+		player.transform.position = new Vector3 (x, player.transform.position.y, player.transform.position.z);
 	}
 
+	public void setChasing (bool chasing)
+	{
+		this.chasing = chasing;
+		if (chasing) {
+			playerCameraOffset = player.transform.position.x - transform.position.x;
+		}
+	}
 
 }
 
