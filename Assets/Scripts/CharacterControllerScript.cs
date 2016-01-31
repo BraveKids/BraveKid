@@ -17,6 +17,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	public bool interact;
 	public bool interactItemGrabbed;
 	public bool rockGrabbed;
+	public bool isBrickGrabbed;
 	public bool canInteractBool;
 	public float firingAngle = 45.0f;
 	public float gravity = 9.8f;
@@ -54,6 +55,7 @@ public class CharacterControllerScript : MonoBehaviour {
 		canInteractBool = false;
 		interact = false;
 		rockGrabbed = false;
+		isBrickGrabbed = false;
 
 	
 
@@ -297,6 +299,12 @@ public class CharacterControllerScript : MonoBehaviour {
 		if (other.CompareTag ("HidePlace")) {
 			canHide = true;
 		}
+		else if (other.CompareTag("Pulley") && Input.GetKeyDown(KeyCode.G) && !hidden && isBrickGrabbed) {
+            setBrickGrabbed(false);
+            other.GetComponent<PulleyActivation>().IsActivated = true;
+        } else if (other.CompareTag("Switch") && Input.GetKeyDown(KeyCode.H) && !hidden) {
+            other.GetComponent<SwitchManager>().Toggle();
+        }   	
 		if(other.CompareTag("Wall")){
 			canSlideWall = true;
 			if(!anim.GetBool("death")){
@@ -360,6 +368,11 @@ public class CharacterControllerScript : MonoBehaviour {
 	public bool checkItemGrabbed(){
 		return !(rockGrabbed || interactItemGrabbed);
 	}
+	
+	 public void setBrickGrabbed(bool isGrabbed) {
+        isBrickGrabbed = isGrabbed;
+    }
+	
 	public void setRockGrabbed(){
 		rockGrabbed = true;
 	}
