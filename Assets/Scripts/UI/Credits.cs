@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Credits : MonoBehaviour
 {
-
+	public bool end;
 	float posX;
 	float posY;
 	GameObject text;
@@ -23,7 +23,10 @@ public class Credits : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.Escape) || Input.GetKeyDown (KeyCode.Joystick1Button7)) {
+		if ((Input.GetKeyDown (KeyCode.Escape) || Input.GetKeyDown (KeyCode.Joystick1Button7))) {
+			if(end){
+				Application.LoadLevel("Menu");
+			}
 			toMainMenu();
 		}
 		if (t < 1f) {
@@ -35,6 +38,7 @@ public class Credits : MonoBehaviour
 			
 			if (t >= 1f) {
 				t = 0f;
+				Application.LoadLevel("Menu");
 				resetCredits();
 			}
 		}

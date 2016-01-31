@@ -104,9 +104,9 @@ public class SoundManager : MonoBehaviour
 			{
 				level = SaveLoad.savedGame.level;
 
-				if (level <= 5) {
+				if (level <= 6) {
 					SoundManager.instance.SetBackgroundMusic ("track1");
-				} else if (level > 5 && level <= 11) {
+				} else if (level > 6 && level <= 11) {
 					SoundManager.instance.SetBackgroundMusic ("track2");					
 				} else if (level == 12) {
 					SoundManager.instance.SetBackgroundMusic ("track3_1");
@@ -158,19 +158,24 @@ public class SoundManager : MonoBehaviour
 
 	public void playAudioEffect (string audioEffect)
 	{
-		Debug.Log (allEffect ["button"].ToString ());
+		Debug.Log (allEffect [audioEffect].ToString ());
 		AudioSource audio = gameObject.AddComponent<AudioSource> ();
-		audio.clip = allEffect ["button"];
+		audio.clip = allEffect [audioEffect];
 		audio.Play ();
 	}
 
-	public AudioSource playLoopEffect (string audioEffect, bool loop)
+	public AudioSource playLoopEffect (string audioEffect)
 	{
 		AudioSource audio = new AudioSource ();
-		audio.loop = loop;
+		audio.loop = true;
 		audio.clip = allEffect [audioEffect];
 		audio.Play ();
 		return audio;
 	}
+
+	public void stopEffect(AudioSource source){
+		if(source!=null){
+			source.Stop();
+	}
 	
-}
+	}}

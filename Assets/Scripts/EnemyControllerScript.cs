@@ -4,6 +4,8 @@ using System.Collections;
 public class EnemyControllerScript : MonoBehaviour {
 	public GameObject spriteLuce;
 	public GameObject spriteBuio;
+	AudioSource goodCat;
+	AudioSource badCat;
 	bool chase;
 	bool facingRight = true;
 	GameObject player;
@@ -44,9 +46,11 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	public void intoTheLight(bool light){
 		if (light == true) {
+
 			spriteLuce.gameObject.SetActive (true);
 			spriteBuio.gameObject.SetActive (false);
 		} else {
+	
 			spriteLuce.gameObject.SetActive (false);
 			spriteBuio.gameObject.SetActive (true);
 		}

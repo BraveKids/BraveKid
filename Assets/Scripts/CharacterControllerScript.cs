@@ -93,6 +93,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	void Shout(){
 		if ((Input.GetKeyDown (KeyCode.I) || Input.GetKeyDown (KeyCode.F) || Input.GetKeyDown (KeyCode.Joystick1Button3)) && !wallBack) {
+			SoundManager.instance.playAudioEffect("hey");
 			shout =true;
 			rb.velocity = new Vector2(0,0);
 			Move = false;
@@ -344,7 +345,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.CompareTag("Death")){
 			cameraManager.instance.cameraDeath ();
-	}
+		}
 }
 
 
