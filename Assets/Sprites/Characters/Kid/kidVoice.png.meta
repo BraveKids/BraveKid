@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 7547ac3b7a410e644995d5938433a4e4
+timeCreated: 1454228417
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kidVoice_0
+    21300002: kidVoice_1
+    21300004: kidVoice_2
+    21300006: kidVoice_3
+    21300008: kidVoice_4
+    21300010: kidVoice_5
+    21300012: kidVoice_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kidVoice_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 28
+        width: 136
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidVoice_1
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 28
+        width: 136
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidVoice_2
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 33
+        width: 165
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidVoice_3
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 28
+        width: 150
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidVoice_4
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 28
+        width: 160
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidVoice_5
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 25
+        width: 203
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidVoice_6
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 33
+        width: 136
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

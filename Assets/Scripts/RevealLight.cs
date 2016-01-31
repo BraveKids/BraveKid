@@ -13,9 +13,13 @@ public class RevealLight : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
+    void OnTriggerEnter2D(Collider2D other) {
+
 		if (other.CompareTag ("Enemy")) {
 			other.gameObject.GetComponent<EnemyControllerScript> ().intoTheLight (true);
+		}
+		if (other.CompareTag ("Mouse")) {
+			other.gameObject.GetComponent<TopoControllerScript> ().intoTheLight (true);
 		}
 		if (other.CompareTag ("Piccione")) {
 			other.gameObject.GetComponent<PiccioneChange> ().intoTheLight (true);
@@ -23,6 +27,10 @@ public class RevealLight : MonoBehaviour {
 		if (other.CompareTag ("Player")) {
 			other.GetComponent<CharacterControllerScript> ().setUnderLight (true);
 		}
+        if (other.CompareTag("Spectre")) {
+            Destroy(other.gameObject);
+        }
+
 	}
 
 	void OnTriggerExit2D(Collider2D other){
@@ -34,6 +42,9 @@ public class RevealLight : MonoBehaviour {
 		}
 		if (other.CompareTag ("Piccione")) {
 			other.gameObject.GetComponent<PiccioneChange> ().intoTheLight (false);
+		}
+		if (other.CompareTag ("Mouse")) {
+			other.gameObject.GetComponent<TopoControllerScript> ().intoTheLight (false);
 		}
 	}
 

@@ -24,7 +24,7 @@ public class grabTrigger : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other){
 		if (other.CompareTag ("Player")) {
 			isInRange = true;
-			gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+			//gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
 			player.GetComponent<CharacterControllerScript> ().canInteract(true);
 		}
 	}
@@ -32,7 +32,7 @@ public class grabTrigger : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other){
 		if (other.CompareTag ("Player")) {
 			isInRange = false;
-			gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+			//gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			player.GetComponent<CharacterControllerScript> ().canInteract(false);
 		}
 	}
