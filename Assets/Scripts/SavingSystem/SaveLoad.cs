@@ -47,9 +47,11 @@ public class SaveLoad
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
 
+	}
 
-
-
-
-}
+	public static void newGame ()
+	{
+		File.Delete (SAVING_PATH);
+	}
+	
 }
