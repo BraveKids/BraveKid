@@ -392,7 +392,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	public void setUnderLight(bool trigger){
 		underLight = trigger;
 	}
-	public void checkShout(){
+	public bool checkShout(){
 		return shout;
 	}
 

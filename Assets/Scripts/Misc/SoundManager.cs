@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
 {
 	
 	public static SoundManager instance = null;
-	Dictionary<string,AudioClip> allMusics;
+	public Dictionary<string,AudioClip> allMusics;
 	Dictionary<string, AudioClip> allEffect;
 	
 	// source
@@ -44,8 +44,6 @@ public class SoundManager : MonoBehaviour
 	public AudioClip scaryGranny;
 	public AudioClip sleepyDog;
 	public AudioClip barfDog;
-
-
 	int level = -1;	//default value
 	
 	string musicPlayed;
@@ -65,30 +63,35 @@ public class SoundManager : MonoBehaviour
 		}
 		
 		allMusics = new Dictionary<string, AudioClip> ();
+		allMusics.Add ("track1", track1);
+		allMusics.Add ("track2", track2);
+		allMusics.Add ("track3_1", track3_1);
+		allMusics.Add ("track3_2", track3_2);
+		allMusics.Add ("track3_3", track3_3);
 
-
+		Debug.Log (allMusics.Count);
 		allEffect = new Dictionary<string, AudioClip > ();
 		allEffect.Add ("button", button);
-		allEffect.Add ("laugh",laugh);
-		allEffect.Add ("swing",swing);
+		allEffect.Add ("laugh", laugh);
+		allEffect.Add ("swing", swing);
 		allEffect.Add ("goodCat", goodCat);
 		allEffect.Add ("badCat", badCat);
-		allEffect.Add("goodBird", goodBird);
-		allEffect.Add("badBird", badBird);
-		allEffect.Add("rock", rock);
-		allEffect.Add("lizard", lizard);
-		allEffect.Add("mouseTrap", mouseTrap);
-		allEffect.Add("goodMouse", goodMouse);
-		allEffect.Add("badMouse", badMouse);
-		allEffect.Add("light", light);
-		allEffect.Add("hey", hey);
-		allEffect.Add("wind", wind);
-		allEffect.Add("crows", crows);
-		allEffect.Add("chair", chair);
-		allEffect.Add("sleepyGranny", sleepyGranny);
-		allEffect.Add("scaryGranny", scaryGranny);
-		allEffect.Add("sleepyDog", sleepyDog);
-		allEffect.Add("barfDog", barfDog);
+		allEffect.Add ("goodBird", goodBird);
+		allEffect.Add ("badBird", badBird);
+		allEffect.Add ("rock", rock);
+		allEffect.Add ("lizard", lizard);
+		allEffect.Add ("mouseTrap", mouseTrap);
+		allEffect.Add ("goodMouse", goodMouse);
+		allEffect.Add ("badMouse", badMouse);
+		allEffect.Add ("light", light);
+		allEffect.Add ("hey", hey);
+		allEffect.Add ("wind", wind);
+		allEffect.Add ("crows", crows);
+		allEffect.Add ("chair", chair);
+		allEffect.Add ("sleepyGranny", sleepyGranny);
+		allEffect.Add ("scaryGranny", scaryGranny);
+		allEffect.Add ("sleepyDog", sleepyDog);
+		allEffect.Add ("barfDog", barfDog);
 		
 		musicSource = GetComponent<AudioSource> () as AudioSource;
 		musicSource.loop = true;
@@ -98,31 +101,26 @@ public class SoundManager : MonoBehaviour
 	void Update ()
 	{
 		if (level != SaveLoad.savedGame.level) {
+			{
+				level = SaveLoad.savedGame.level;
 
-
-			switch (SaveLoad.savedGame.level) {
-			case -1:
-				SetBackgroundMusic ("lullaby");
-				break;
-			case 0:
-				SetBackgroundMusic ("tutorial");
-				break;
-			case 1:
-				SetBackgroundMusic ("school");
-				break;
-				
-			case 2:
-				SetBackgroundMusic ("gorilla");
-				break;
-				
-			case 5:
-				SetBackgroundMusic ("knight");
-				break;
-			default:
-				SetBackgroundMusic ("lullaby");
-				break;
-				
+				if (level <= 5) {
+					SoundManager.instance.SetBackgroundMusic ("track1");
+				} else if (level > 5 && level <= 11) {
+					SoundManager.instance.SetBackgroundMusic ("track2");					
+				} else if (level == 12) {
+					SoundManager.instance.SetBackgroundMusic ("track3_1");
+					
+				} else if (level == 13) {
+					SoundManager.instance.SetBackgroundMusic ("track3_2");
+					
+				} else {
+					SoundManager.instance.SetBackgroundMusic ("track3_3");
+					
+				}
 			}
+
+
 			
 			
 		}
@@ -137,7 +135,6 @@ public class SoundManager : MonoBehaviour
 	{
 		if (allMusics.ContainsKey (background)) {
 			musicSource.clip = allMusics [background];
-			level = SaveLoad.savedGame.level;
 			musicSource.Play ();
 		}
 		
@@ -157,8 +154,8 @@ public class SoundManager : MonoBehaviour
 
 	public void playAudioEffect (string audioEffect)
 	{
-		Debug.Log(allEffect["button"].ToString());
-		AudioSource audio = gameObject.AddComponent<AudioSource>();
+		Debug.Log (allEffect ["button"].ToString ());
+		AudioSource audio = gameObject.AddComponent<AudioSource> ();
 		audio.clip = allEffect ["button"];
 		audio.Play ();
 	}

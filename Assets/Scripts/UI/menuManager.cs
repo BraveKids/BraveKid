@@ -196,8 +196,5 @@ public class menuManager : MonoBehaviour
 		}
 	}
 
-	public void playAudioEffect (string audioEffect)
-	{	
 
-	}
 }

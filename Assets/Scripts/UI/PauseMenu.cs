@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
 	float transitionDuration = 1f;
 	List<GameObject> buttons;
 	int selected;
+	public AudioClip buttonSound;
 	// Use this for initialization
 	public void Start ()
 	{
@@ -24,14 +25,14 @@ public class PauseMenu : MonoBehaviour
 		GameObject newGame = transform.FindChild ("mainMenu").gameObject;
 		GameObject continueButton = transform.FindChild ("continue").gameObject;
 
-		buttons = new List<GameObject>(){continueButton,newGame};
+		buttons = new List<GameObject> (){continueButton,newGame};
 
 		scaleX = buttons [0].transform.localScale.x;
 		scaleY = buttons [0].transform.localScale.y;
 		scaleZ = buttons [0].transform.localScale.z;
 		selected = 0;
 
-		showPauseMenu();
+		showPauseMenu ();
 
 		//player = GameObject.FindGameObjectWithTag("Player");
 	}
@@ -79,17 +80,17 @@ public class PauseMenu : MonoBehaviour
 	{
 		Time.timeScale = 0;
 		gameObject.SetActive (true);
-		player.GetComponent<CharacterControllerScript>().canMove(false);
-		//SoundManager.instance.SetMusic(false);
+		player.GetComponent<CharacterControllerScript> ().canMove (false);
+		SoundManager.instance.SetMusic (false);
 	}
 	
 	public void hidePauseMenu ()
 	{
 		gameObject.SetActive (false);
 		Time.timeScale = 1;	
-		player.GetComponent<CharacterControllerScript>().canMove(true);
+		player.GetComponent<CharacterControllerScript> ().canMove (true);
 		
-		//SoundManager.instance.SetMusic(true);
+		SoundManager.instance.SetMusic (true);
 	}
 	
 	public void continueGame ()
@@ -101,13 +102,21 @@ public class PauseMenu : MonoBehaviour
 	{
 		Time.timeScale = 1;
 		hidePauseMenu ();
+		SoundManager.instance.SetMusic (false);
+		
 		Application.LoadLevel ("Menu");
 	}
 
 	void changeButton (int selected)
 	{
+		if (this.selected == selected) {
+			return;
+		}
 		buttons [this.selected].transform.localScale = new Vector3 (scaleX, scaleY, scaleZ);
 		this.selected = selected;
+		AudioSource audio = gameObject.AddComponent<AudioSource> ();
+		audio.clip = buttonSound;
+		audio.Play ();
 	}
 
 	float nextGaussian (float x)
