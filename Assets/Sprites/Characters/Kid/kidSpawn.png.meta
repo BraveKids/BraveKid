@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 15f3f6d79d822124698140c497bf50b9
+timeCreated: 1454235650
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kidSpawn_0
+    21300002: kidSpawn_1
+    21300004: kidSpawn_2
+    21300006: kidSpawn_3
+    21300008: kidSpawn_4
+    21300010: kidSpawn_5
+    21300012: kidSpawn_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kidSpawn_0
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 24
+        width: 237
+        height: 256
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidSpawn_1
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 26
+        width: 207
+        height: 250
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidSpawn_2
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 28
+        width: 207
+        height: 321
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidSpawn_3
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 26
+        width: 198
+        height: 334
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidSpawn_4
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 28
+        width: 195
+        height: 326
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidSpawn_5
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 27
+        width: 199
+        height: 331
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kidSpawn_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 27
+        width: 198
+        height: 333
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

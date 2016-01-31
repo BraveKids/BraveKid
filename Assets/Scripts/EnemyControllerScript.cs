@@ -7,7 +7,7 @@ public class EnemyControllerScript : MonoBehaviour {
 	bool chase;
 	bool facingRight = true;
 	GameObject player;
-	float moveSpeed = 2f;
+	float moveSpeed = 1f;
 	public Transform currentPoint;
 	public Transform[] points;
 	public int pointSelection;

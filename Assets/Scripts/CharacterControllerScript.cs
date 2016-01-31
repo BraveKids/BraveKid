@@ -21,14 +21,9 @@ public class CharacterControllerScript : MonoBehaviour {
 	public bool isBrickGrabbed;
 	public bool canInteractBool;
 	public float firingAngle = 45.0f;
-	public float gravity = 9.8f;
-	Color normalColor;
-	public GameObject sprite1;
-	public GameObject sprite2;    
+	public float gravity = 9.8f; 
 	public Transform myTransform;
 	public float maxSpeed;
-	public int hp = 3;
-	public int energy = 0;
 	bool facingRight = true;
 	Rigidbody2D rb;
 	bool groundedLeft = false;
@@ -46,10 +41,9 @@ public class CharacterControllerScript : MonoBehaviour {
 	public LayerMask whatIsGround; //cosa il character deve considerare ground es. il terreno, i nemici...
 	public float jumpForce;	
 
-	void Awake () {
+	void Start () {
 
 		anim = GetComponentInChildren<Animator> ();
-		normalColor = GetComponentInChildren<SpriteRenderer> ().color;
 		Target.GetComponentInChildren<SpriteRenderer> ().enabled = false;
 		rb = GetComponent<Rigidbody2D> ();
 		Move = true;
@@ -60,9 +54,13 @@ public class CharacterControllerScript : MonoBehaviour {
 		rockGrabbed = false;
 		isBrickGrabbed = false;
 
+
+
 	
 
 	}
+
+		
 
 	
 	// Update is called once per frame
@@ -88,12 +86,26 @@ public class CharacterControllerScript : MonoBehaviour {
 		Movement ();
 		RockThrow ();
 		Interact ();
-
+		Shout ();
 
 
 	}
 
 	void Shout(){
+		if ((Input.GetKeyDown (KeyCode.I) || Input.GetKeyDown (KeyCode.F) || Input.GetKeyDown (KeyCode.Joystick1Button3)) && !wallBack) {
+			shout =true;
+			rb.velocity = new Vector2(0,0);
+			Move = false;
+			if(underLight){
+				normalArmorIdle.SetActive(true);
+				normalArmorWalking.SetActive(false);
+			}else{
+				fantasyArmorIdle.SetActive(true);
+				fantasyArmorWalking.SetActive(false);
+			}
+			anim.SetTrigger("shout");
+			Invoke ("stopShouting", 0.5f);
+		}
 	}
 
 
@@ -125,7 +137,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	void Movement () {
 		if (Move) {
 			if ((Input.GetKey (KeyCode.Z)||Input.GetKey (KeyCode.J)||Input.GetKey(KeyCode.Joystick1Button4) ) && grounded && !hidden && !wallBack) {
-				maxSpeed = 0.5f;
+				maxSpeed = 0.8f;
 				anim.SetBool("slow", true);
 			} else {
 				maxSpeed = 1.5f;
@@ -174,7 +186,7 @@ public class CharacterControllerScript : MonoBehaviour {
 			grounded = groundedLeft || groundedRight;
 		
 			float move = Input.GetAxis ("Horizontal");
-			if (move != 0 && !wallBack) {
+			if (move != 0 && !wallBack ) {
 				if (fantasyArmor.activeSelf == true) {
 					currentArmor = fantasyArmorWalking;
 					fantasyArmorIdle.SetActive (false);
@@ -307,10 +319,10 @@ public class CharacterControllerScript : MonoBehaviour {
 		if (other.CompareTag ("HidePlace")) {
 			canHide = true;
 		}
-		else if (other.CompareTag("Pulley") && Input.GetKeyDown(KeyCode.G) && !hidden && isBrickGrabbed) {
+		else if (other.CompareTag("Pulley") && (Input.GetKeyDown (KeyCode.K) || Input.GetKeyDown (KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button2)) && !hidden && isBrickGrabbed) {
             setBrickGrabbed(false);
             other.GetComponent<PulleyActivation>().IsActivated = true;
-        } else if (other.CompareTag("Switch") && Input.GetKeyDown(KeyCode.H) && !hidden) {
+		} else if (other.CompareTag("Switch") && (Input.GetKeyDown (KeyCode.Space)|| Input.GetKeyDown(KeyCode.Joystick1Button0)) && !hidden) {
             other.GetComponent<SwitchManager>().Toggle();
         }   	
 		if(other.CompareTag("Wall")){
@@ -392,8 +404,12 @@ public class CharacterControllerScript : MonoBehaviour {
 	public void setUnderLight(bool trigger){
 		underLight = trigger;
 	}
-	public void checkShout(){
+	public bool checkShout(){
 		return shout;
+	}
+	void stopShouting(){
+		shout = false;
+		Move = true;
 	}
 
 	public void GameOver(){

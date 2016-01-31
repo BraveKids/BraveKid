@@ -1,0 +1,89 @@
+fileFormatVersion: 2
+guid: 81d2bd0e5b8abc44d9cbefaaf24f4df0
+timeCreated: 1454244299
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: finestra_0
+    21300002: finestra_1
+    21300004: finestra_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: finestra_0
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 957
+        width: 739
+        height: 462
+      alignment: 9
+      pivot: {x: .980814159, y: .964292347}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finestra_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 465
+        width: 874
+        height: 462
+      alignment: 9
+      pivot: {x: .983359456, y: .964292169}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finestra_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 802
+        height: 447
+      alignment: 9
+      pivot: {x: .983878016, y: .965219796}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
