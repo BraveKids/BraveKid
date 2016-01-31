@@ -115,8 +115,7 @@ public class SoundManager : MonoBehaviour
 					SoundManager.instance.SetBackgroundMusic ("track3_2");
 					
 				} else {
-					SoundManager.instance.SetBackgroundMusic ("track3_3");
-					
+					SoundManager.instance.SetBackgroundMusic ("track3_3");					
 				}
 			}
 
@@ -133,9 +132,14 @@ public class SoundManager : MonoBehaviour
 	
 	public void SetBackgroundMusic (string background)
 	{
+		if(background==musicPlayed){
+			return;
+		}
 		if (allMusics.ContainsKey (background)) {
 			musicSource.clip = allMusics [background];
 			musicSource.Play ();
+			musicPlayed=background;
+
 		}
 		
 		

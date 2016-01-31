@@ -99,6 +99,8 @@ public class menuManager : MonoBehaviour
 			}
 
 			if (selected == "newGame") {
+
+				SaveLoad.newGame();
 				Application.LoadLevel ("Gameplay");
 			}
 
