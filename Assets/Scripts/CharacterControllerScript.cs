@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CharacterControllerScript : MonoBehaviour {
 	public Transform Target;
+	public float vSpeed;
 	Animator anim;
 	public GameObject sprite;
 	GameObject currentArmor;
@@ -36,6 +37,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	public Transform groundCheckLeft;
 	public Transform groundCheckRight;
 	bool Move;
+	public bool shout;
 	public bool canHide;
 	public bool hidden;
 	public bool canSlideWall;
@@ -45,6 +47,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	public float jumpForce;	
 
 	void Awake () {
+
 		anim = GetComponentInChildren<Animator> ();
 		normalColor = GetComponentInChildren<SpriteRenderer> ().color;
 		Target.GetComponentInChildren<SpriteRenderer> ().enabled = false;
@@ -64,6 +67,8 @@ public class CharacterControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		vSpeed = Input.GetAxis ("Vertical");
+
 		if (rockGrabbed) {
 			Target.GetComponentInChildren<SpriteRenderer> ().enabled = true;
 		} else {
@@ -88,9 +93,12 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	}
 
+	void Shout(){
+	}
+
 
 	void RockThrow(){
-		if (Input.GetKeyDown (KeyCode.G) && !hidden && !wallBack && rockGrabbed) {
+		if ((Input.GetKeyDown (KeyCode.K) || Input.GetKeyDown (KeyCode.X) || Input.GetKeyDown(KeyCode.Joystick1Button2)) && !hidden && !wallBack && rockGrabbed) {
 			rockGrabbed = false;
 			anim.Play("toss");
 			rb.velocity = new Vector2(0,0);
@@ -106,7 +114,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 
 	void Interact(){
-		if (Input.GetKeyDown (KeyCode.H) && canInteractBool == true && !hidden) {
+		if ((Input.GetKeyDown (KeyCode.Space)|| Input.GetKeyDown(KeyCode.Joystick1Button0)) && canInteractBool == true && !hidden) {
 			interact = true;
 			canInteractBool = false;
 		} else {
@@ -116,7 +124,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	void Movement () {
 		if (Move) {
-			if (Input.GetKey (KeyCode.F) && grounded && !hidden && !wallBack) {
+			if ((Input.GetKey (KeyCode.Z)||Input.GetKey (KeyCode.J)||Input.GetKey(KeyCode.Joystick1Button4) ) && grounded && !hidden && !wallBack) {
 				maxSpeed = 0.5f;
 				anim.SetBool("slow", true);
 			} else {
@@ -132,26 +140,26 @@ public class CharacterControllerScript : MonoBehaviour {
 		}	
 		*/
 
-			if (Input.GetKeyDown (KeyCode.UpArrow) && canHide) {
+			if ((Input.GetKeyDown (KeyCode.UpArrow)|| vSpeed>0.9 || Input.GetKeyDown(KeyCode.W)) && canHide) {
 				sprite.GetComponent<SpriteRenderer> ().sortingLayerName = "Middleground";
 				currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Middleground";
 				gameObject.layer = 8;
 				hidden = true;
 			}
-			if (Input.GetKeyDown (KeyCode.UpArrow) && canSlideWall) {
+			if ((Input.GetKeyDown (KeyCode.UpArrow)|| vSpeed>0.9 || Input.GetKeyDown(KeyCode.W)) && canSlideWall) {
 				anim.SetBool("wall", true);
 				gameObject.layer = 8;
 				wallBack = true;
 			}
 
-			if (Input.GetKeyDown (KeyCode.DownArrow) && hidden) {
+			if ((Input.GetKeyDown (KeyCode.DownArrow)|| vSpeed<-0.9 || Input.GetKeyDown(KeyCode.S)) && hidden) {
 				sprite.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
 				currentArmor.GetComponent<SpriteRenderer> ().sortingLayerName = "Foreground";
 				gameObject.layer = 9;
 				hidden = false;
 			}
 
-			if (Input.GetKeyDown (KeyCode.DownArrow) && wallBack) {
+			if ((Input.GetKeyDown (KeyCode.DownArrow)|| vSpeed<-0.9 || Input.GetKeyDown(KeyCode.S)) && wallBack) {
 				anim.SetBool("wall", false);
 				gameObject.layer = 9;
 				wallBack = false;
@@ -321,6 +329,11 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	
 	}
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.CompareTag("Death")){
+			cameraManager.instance.cameraDeath ();
+	}
+}
 
 
 	void OnTriggerExit2D(Collider2D other){
@@ -378,6 +391,9 @@ public class CharacterControllerScript : MonoBehaviour {
 	}
 	public void setUnderLight(bool trigger){
 		underLight = trigger;
+	}
+	public void checkShout(){
+		return shout;
 	}
 
 	public void GameOver(){
