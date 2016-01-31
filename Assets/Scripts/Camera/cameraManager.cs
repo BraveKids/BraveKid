@@ -35,9 +35,11 @@ public class cameraManager : MonoBehaviour
 	public float playerDimension = 8;
 	public List<GameObject> levels;
 
+	public int level;
+
 	bool chasing;
 	float playerCameraOffset;
-	public int level=0;
+
 	public int numLevels;
 
 

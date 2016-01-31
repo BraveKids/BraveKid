@@ -17,6 +17,9 @@ public class RevealLight : MonoBehaviour {
 		if (other.CompareTag ("Enemy")) {
 			other.gameObject.GetComponent<EnemyControllerScript> ().intoTheLight (true);
 		}
+		if (other.CompareTag ("Piccione")) {
+			other.gameObject.GetComponent<PiccioneChange> ().intoTheLight (true);
+		}
 		if (other.CompareTag ("Player")) {
 			other.GetComponent<CharacterControllerScript> ().setUnderLight (true);
 		}
@@ -28,6 +31,9 @@ public class RevealLight : MonoBehaviour {
 		}
 		if (other.CompareTag ("Player")) {
 			other.GetComponent<CharacterControllerScript> ().setUnderLight (false);
+		}
+		if (other.CompareTag ("Piccione")) {
+			other.gameObject.GetComponent<PiccioneChange> ().intoTheLight (false);
 		}
 	}
 

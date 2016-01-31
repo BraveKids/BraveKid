@@ -12,7 +12,7 @@ public class Game {
 
 	public Game () {
 
-		level = 0;
+		level = 3;
 		
 	}
 
