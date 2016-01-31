@@ -94,6 +94,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	}
 
 	void Shout(){
+	
 	}
 
 
