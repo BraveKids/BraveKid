@@ -50,7 +50,7 @@ Each of them is divided into six sections, in which the player is tested with di
 
 #### <i class="icon-download"></i> **Source files**
 
-[<i class="icon-provider-amazon"></i> Download from Amazon Web Services](http://ggj.s3.amazonaws.com/games/2016/01/31/1810/TheTrial.zip)
+[<i class="icon-provider-amazon"></i>PC Windows + Source Code | Download from Amazon Web Services](http://ggj.s3.amazonaws.com/games/2016/01/31/1810/TheTrial.zip)
 
 
 ----------
