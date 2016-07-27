@@ -111,13 +111,14 @@ Each of them is divided into six sections, in which the player is tested with di
       </td>
       <td align="center"><img src="https://raw.githubusercontent.com/BraveKids/CLANG/master/Documents/Resources/image6.png" width="150" height="150" /></td>
     </tr>
-    <tr>
-      <td align="center"><img src="https://raw.githubusercontent.com/BraveKids/CLANG/master/Documents/Resources/image7.png" width="150" height="150" /></td>
+    <tr>      
+      <td align="center"><img src="https://raw.githubusercontent.com/BraveKids/CLANG/master/Documents/Resources/image9.png" width="150" height="150" /></td>
       <td>
       <dl>
-<dt><b>Michele Celata</b></dt>
-<dd>National Academy of St Cecilia</dd>
-<dd>Sound Designer</dd>
+<dt><b>Emanuele Ricci</b></dt>
+<dd>Rome University of Fine Art</dd>
+<dd>Master’s Degree in Graphic Design</dd>
+<dd>Artist</dd>
 </dl>
       </td>
     </tr>
@@ -132,20 +133,6 @@ Each of them is divided into six sections, in which the player is tested with di
       </td>
       <td align="center"><img src="https://raw.githubusercontent.com/BraveKids/CLANG/master/Documents/Resources/image8.png" width="150" height="150" /></td>
     </tr>
-    </tr>
-    <tr>      
-      <td align="center"><img src="https://raw.githubusercontent.com/BraveKids/CLANG/master/Documents/Resources/image9.png" width="150" height="150" /></td>
-      <td>
-      <dl>
-<dt><b>Emanuele Ricci</b></dt>
-<dd>Rome University of Fine Art</dd>
-<dd>Master’s Degree in Graphic Design</dd>
-<dd>Artist</dd>
-</dl>
-      </td>
-    </tr>
+    </tr>    
   </tbody>
 </table>
-
-
-
